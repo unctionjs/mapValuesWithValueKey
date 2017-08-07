@@ -1,13 +1,12 @@
 /* eslint-disable flowtype/require-parameter-type, flowtype/require-return-type */
 import {test} from "tap"
 
-import tempLate from "./"
+import mapValuesWithValueKey from "./"
 
 test(({same, end}) => {
   same(
-    tempLate(true),
-    false
+    mapValuesWithValueKey((value) => (index) => `${value}:${index}`)(["a", "b", "c"]),
+    ["a:0", "b:1", "c:2"]
   )
-
   end()
 })
