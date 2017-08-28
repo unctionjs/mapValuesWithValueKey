@@ -1,7 +1,7 @@
 /* eslint-disable flowtype/require-parameter-type, flowtype/require-return-type */
 import {test} from "tap"
 
-import mapValuesWithValueKey from "./"
+import mapValuesWithValueKey from "./index"
 
 test(({same, end}) => {
   same(
