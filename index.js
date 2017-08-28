@@ -4,27 +4,27 @@ import isObject from "@unction/isobject"
 import reduceWithValueKey from "@unction/reducewithvaluekey"
 
 export default function mapValuesWithValueKey (unction: ValueType => ValueType): Function {
-  return function mapValuesWithValueKeyUnction (iterable: IterableType): IterableType {
+  return function mapValuesWithValueKeyUnction (functor: FunctorType): FunctorType {
     const reducedWithUnction = reduceWithValueKey(
-      (accumulated: AccumulatedType): Function => (value: ValueType): Function => (key: KeyType): IterableType => attach(key)(unction(value)(key))(accumulated)
+      (accumulated: AccumulatedType): Function => (value: ValueType): Function => (key: KeyType): FunctorType => attach(key)(unction(value)(key))(accumulated)
     )
 
-    if (isArray(iterable)) {
+    if (isArray(functor)) {
       return reducedWithUnction(
         []
       )(
-        iterable
+        functor
       )
     }
 
-    if (isObject(iterable)) {
+    if (isObject(functor)) {
       return reducedWithUnction(
         {}
       )(
-        iterable
+        functor
       )
     }
 
-    throw new Error("Couldn't figure out how to map over this iterable")
+    throw new Error("Couldn't figure out how to map over this functor")
   }
 }

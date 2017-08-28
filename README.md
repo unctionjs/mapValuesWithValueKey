@@ -5,7 +5,7 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> (any => KeyType => any) -> IterableType -> IterableType
+> (any => KeyType => any) -> FunctorType -> FunctorType
 
 Just like map, but gives back the index argument (as an integer, not a string if array)
 
