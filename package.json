@@ -51,7 +51,7 @@
     "tap": "10.3.4"
   },
   "dependencies": {
-    "@unction/attach": "2.0.0",
+    "@unction/attach": "3.0.0",
     "@unction/isarray": "2.0.0",
     "@unction/isobject": "2.0.0",
     "@unction/reducewithvaluekey": "4.1.0"
