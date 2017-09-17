@@ -1,11 +1,14 @@
 # @unction/mapValuesWithValueKey
 
-
 ![Tests][BADGE_TRAVIS]
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> (any => KeyType => any) -> FunctorType -> FunctorType
+> (ValueType => ObjectKeyType => ValueType) => ObjectType => ObjectType
+> (ValueType => ArrayKeyType => ValueType) => ArrayType => ArrayType
+> (ValueType => MapKeyType => ValueType) => MapType => MapType
+> (ValueType => ArrayKeyType => ValueType) => StringType => StringType
+> (ValueType => null => ValueType) => SetType => SetType
 
 Just like map, but gives back the index argument (as an integer, not a string if array)
 

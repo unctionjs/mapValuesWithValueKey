@@ -2,12 +2,12 @@ import attach from "@unction/attach"
 import fresh from "@unction/fresh"
 import reduceWithValueKey from "@unction/reducewithvaluekey"
 
-export default function mapValuesWithValueKey (unction: ValueType => KeyType => ValueType): Function {
-  return function mapValuesWithValueKeyUnction (functor: FunctorType): FunctorType {
+export default function mapValuesWithValueKey (unction: ValueType => (ObjectKeyType | ArrayKeyType | MapKeyType | ArrayKeyType | null) => ValueType): Function {
+  return function mapValuesWithValueKeyUnction (functor: ObjectType | ArrayType | MapType | StringType | SetType): ObjectType | ArrayType | MapType | StringType | SetType {
     return reduceWithValueKey(
-      (accumulated: AccumulatedType): Function =>
+      (accumulated: ObjectType | ArrayType | MapType | StringType | SetType): Function =>
         (value: ValueType): Function =>
-          (key: KeyType): FunctorType =>
+          (key: (KeyType | null)): ObjectType | ArrayType | MapType | StringType | SetType =>
             attach(key)(unction(value)(key))(accumulated)
     )(
       fresh(functor)
