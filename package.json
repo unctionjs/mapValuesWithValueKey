@@ -55,7 +55,7 @@
     "@unction/fresh": "3.11.0",
     "@unction/mergeright": "3.36.2",
     "@unction/of": "1.0.0",
-    "@unction/reducewithvaluekey": "4.40.0"
+    "@unction/reducewithvaluekey": "5.0.0"
   },
   "nyc": {
     "require": [
