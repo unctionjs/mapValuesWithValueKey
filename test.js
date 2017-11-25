@@ -1,9 +1,11 @@
 /* eslint-disable flowtype/require-parameter-type, flowtype/require-return-type */
 import {test} from "tap"
+import xstream from "xstream"
+import streamSatisfies from "@unction/streamsatisfies"
 
 import mapValuesWithValueKey from "./index"
 
-test(({same, end}) => {
+test("Array", ({same, end}) => {
   same(
     mapValuesWithValueKey((value) => (index) => `${value}:${index}`)(["a", "b", "c"]),
     ["a:0", "b:1", "c:2"]
@@ -11,7 +13,7 @@ test(({same, end}) => {
   end()
 })
 
-test(({same, end}) => {
+test("Object", ({same, end}) => {
   same(
     mapValuesWithValueKey((value) => (index) => `${value}:${index}`)({
       aaa: "a",
@@ -27,7 +29,7 @@ test(({same, end}) => {
   end()
 })
 
-test(({same, end}) => {
+test("Map", ({same, end}) => {
   same(
     mapValuesWithValueKey((value) => (index) => `${value}:${index}`)(new Map([["0", "a"], ["1", "b"], ["2", "c"]])),
     new Map([["0", "a:0"], ["1", "b:1"], ["2", "c:2"]])
@@ -35,7 +37,7 @@ test(({same, end}) => {
   end()
 })
 
-test(({same, end}) => {
+test("Set", ({same, end}) => {
   same(
     mapValuesWithValueKey((value) => (index) => `${value}:${index}`)(new Set(["a", "b", "c"])),
     new Set(["a:", "b:", "c:"])
@@ -43,10 +45,46 @@ test(({same, end}) => {
   end()
 })
 
-test(({same, end}) => {
-  same(
+test("String", ({equal, end}) => {
+  equal(
     mapValuesWithValueKey((value) => (index) => `${value}:${index}`)("abc"),
-    "abc:2:1:0"
+    "a:0b:1c:2"
   )
   end()
+})
+
+test("Stream", ({same, end}) => {
+  streamSatisfies(
+    "['a', null]---|"
+  )(
+    (given) => (expected) => same(given, expected)
+  )(
+    () => () => end()
+  )(
+    mapValuesWithValueKey(
+      (value) =>
+        (index) =>
+          [value, index]
+    )(
+      xstream.of("a")
+    ),
+  )
+})
+
+test("MemoryStream", ({same, end}) => {
+  streamSatisfies(
+    "['a', null]---['b', null]---['c', null]---|"
+  )(
+    (given) => (expected) => same(given, expected)
+  )(
+    () => () => end()
+  )(
+    mapValuesWithValueKey(
+      (value) =>
+        (index) =>
+          [value, index]
+    )(
+      xstream.fromArray(["a", "b", "c"])
+    ),
+  )
 })

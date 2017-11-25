@@ -28,6 +28,7 @@
     "watch": "chokidar './index.js' './test.js' --command 'npm run ci --silent'"
   },
   "devDependencies": {
+    "@unction/streamsatisfies": "3.50.0",
     "babel-cli": "6.26.0",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
@@ -47,11 +48,13 @@
     "flow-bin": "0.51.1",
     "flow-typed": "2.1.5",
     "nyc": "11.1.0",
-    "tap": "10.3.4"
+    "tap": "10.3.4",
+    "xstream": "11.0.0"
   },
   "dependencies": {
-    "@unction/attach": "3.14.1",
     "@unction/fresh": "3.11.0",
+    "@unction/mergeright": "3.36.2",
+    "@unction/of": "1.0.0",
     "@unction/reducewithvaluekey": "4.40.0"
   },
   "nyc": {
