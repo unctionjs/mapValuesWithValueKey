@@ -1,6 +1,6 @@
 /* eslint-disable flowtype/require-parameter-type, flowtype/require-return-type */
 import {test} from "tap"
-import xstream from "xstream"
+import {of} from "most"
 import streamSatisfies from "@unction/streamsatisfies"
 
 import mapValuesWithValueKey from "./index"
@@ -29,18 +29,18 @@ test("Object", ({same, end}) => {
   end()
 })
 
-test("Map", ({same, end}) => {
-  same(
-    mapValuesWithValueKey((value) => (index) => `${value}:${index}`)(new Map([["0", "a"], ["1", "b"], ["2", "c"]])),
-    new Map([["0", "a:0"], ["1", "b:1"], ["2", "c:2"]])
-  )
-  end()
-})
-
 test("Set", ({same, end}) => {
   same(
     mapValuesWithValueKey((value) => (index) => `${value}:${index}`)(new Set(["a", "b", "c"])),
     new Set(["a:undefined", "b:undefined", "c:undefined"])
+  )
+  end()
+})
+
+test("Map", ({same, end}) => {
+  same(
+    mapValuesWithValueKey((value) => (index) => `${value}:${index}`)(new Map([["0", "a"], ["1", "b"], ["2", "c"]])),
+    new Map([["0", "a:0"], ["1", "b:1"], ["2", "c:2"]])
   )
   end()
 })
@@ -53,38 +53,28 @@ test("String", ({equal, end}) => {
   end()
 })
 
-test("Stream", ({same, end}) => {
+test("Stream", ({same, doesNotThrow, equal, end}) => {
   streamSatisfies(
-    "['a', null]---|"
+    [
+      ["a", null],
+    ]
   )(
     (given) => (expected) => same(given, expected)
   )(
-    () => () => end()
+    doesNotThrow
+  )(
+    ({length}) =>
+      (position) => {
+        equal(length, position)
+        end()
+      }
   )(
     mapValuesWithValueKey(
       (value) =>
         (index) =>
           [value, index]
     )(
-      xstream.of("a")
-    ),
-  )
-})
-
-test("MemoryStream", ({same, end}) => {
-  streamSatisfies(
-    "['a', null]---['b', null]---['c', null]---|"
-  )(
-    (given) => (expected) => same(given, expected)
-  )(
-    () => () => end()
-  )(
-    mapValuesWithValueKey(
-      (value) =>
-        (index) =>
-          [value, index]
-    )(
-      xstream.fromArray(["a", "b", "c"])
+      of("a")
     ),
   )
 })
