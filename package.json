@@ -54,9 +54,9 @@
     "tap": "11.0.0"
   },
   "dependencies": {
-    "@unction/fresh": "4.0.0",
-    "@unction/mergeright": "3.36.2",
-    "@unction/of": "1.0.0",
+    "@unction/fresh": "5.0.0",
+    "@unction/mergeright": "4.0.0",
+    "@unction/of": "2.0.0",
     "@unction/reducewithvaluekey": "5.0.0"
   },
   "nyc": {
