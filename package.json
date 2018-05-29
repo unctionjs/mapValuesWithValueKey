@@ -53,9 +53,9 @@
     "most": "1.7.2"
   },
   "dependencies": {
-    "@unction/fresh": "6.0.0",
-    "@unction/mergeright": "5.0.0",
-    "@unction/of": "3.0.0",
+    "@unction/fresh": "7.0.0",
+    "@unction/mergeright": "6.0.0",
+    "@unction/of": "4.0.0",
     "@unction/reducewithvaluekey": "10.1.0"
   },
   "nyc": {
