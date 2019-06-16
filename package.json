@@ -56,8 +56,7 @@
     "@unction/fresh": "8.5.0",
     "@unction/mergeright": "7.5.0",
     "@unction/of": "5.5.0",
-    "@unction/reducewithvaluekey": "11.5.0",
-    "core-js": "3.0.1"
+    "@unction/reducewithvaluekey": "11.5.0"
   },
   "nyc": {
     "require": [
