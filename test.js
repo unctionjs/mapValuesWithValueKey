@@ -1,9 +1,9 @@
-/* eslint-disable flowtype/require-return-type */
+
 import {test} from "tap";
 import {of} from "most";
 import streamSatisfies from "@unction/streamsatisfies";
 
-import mapValuesWithValueKey from "./index";
+import mapValuesWithValueKey from "./";
 
 test("Array", ({same, end}) => {
   same(
