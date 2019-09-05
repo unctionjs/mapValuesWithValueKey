@@ -4,11 +4,9 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> (ValueType => ObjectKeyType => ValueType) => ObjectType => ObjectType
-> (ValueType => ArrayKeyType => ValueType) => ArrayType => ArrayType
-> (ValueType => MapKeyType => ValueType) => MapType => MapType
-> (ValueType => ArrayKeyType => ValueType) => StringType => StringType
-> (ValueType => null => ValueType) => SetType => SetType
+> MapperFunctionType<A, MapperFunctionType<B, C>> =>
+>   KeyedEnumerableType<B, A> =>
+>     KeyedEnumerableType<B, C>
 
 Just like map, but gives back the index argument (as an integer, not a string if array)
 
