@@ -2,7 +2,7 @@
 import {of} from "most";
 import streamSatisfies from "@unction/streamsatisfies";
 
-import mapValuesWithValueKey from "./index.ts";
+import mapValuesWithValueKey from "./index";
 
 test("Array", () => {
   expect(
