@@ -56,9 +56,9 @@
   },
   "dependencies": {
     "@unction/fresh": "8.6.0",
-    "@unction/mergeright": "7.6.0",
-    "@unction/of": "5.6.0",
-    "@unction/reducewithvaluekey": "11.6.0"
+    "@unction/mergeright": "7.7.0",
+    "@unction/of": "5.7.0",
+    "@unction/reducewithvaluekey": "11.7.0"
   },
   "files": [
     "index.ts",
