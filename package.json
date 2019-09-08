@@ -1,6 +1,6 @@
 {
   "name": "@unction/mapvalueswithvaluekey",
-  "version": "10.9.0",
+  "version": "10.9.1",
   "description": "Map over keys with the value and key context",
   "keywords": [
     "unction",
