@@ -55,10 +55,10 @@
     "typescript": "3.5.1"
   },
   "dependencies": {
-    "@unction/fresh": "8.9.0",
-    "@unction/mergeright": "7.9.0",
-    "@unction/of": "5.9.0",
-    "@unction/reducewithvaluekey": "11.9.0"
+    "@unction/fresh": "8.9.1",
+    "@unction/mergeright": "7.10.0",
+    "@unction/of": "5.10.0",
+    "@unction/reducewithvaluekey": "11.10.0"
   },
   "files": [
     "index.ts",
