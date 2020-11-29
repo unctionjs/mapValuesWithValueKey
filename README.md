@@ -5,7 +5,7 @@
 ![Dependencies][BADGE_DEPENDENCY]
 
 > MapperFunctionType<A, MapperFunctionType<B, C>> =>
->   KeyedEnumerableType<B, A> =>
+>   Array<A> | Set<A> | Record<string | number | symbol, B> | Map<B, A> | string =>
 >     KeyedEnumerableType<B, C>
 
 Just like map, but gives back the index argument (as an integer, not a string if array)
