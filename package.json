@@ -62,9 +62,9 @@
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "@unction/fresh": "^8.11.0",
-    "@unction/mergeright": "^7.11.0",
-    "@unction/of": "^5.11.0",
-    "@unction/reducewithvaluekey": "^11.11.0"
+    "@unction/fresh": "^8.12.0",
+    "@unction/mergeright": "^7.12.0",
+    "@unction/of": "^5.12.0",
+    "@unction/reducewithvaluekey": "^11.12.0"
   }
 }
